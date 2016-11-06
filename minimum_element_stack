@@ -1,0 +1,31 @@
+class Stack:
+    def __init__(self):
+        self.item = []
+        self.min = []
+
+    def push(self,data):
+        self.item.append(data)
+        if self.min ==[] or data <= self.min[-1]:
+            self.min.append(data)
+        #else:
+        #    self.min.append(self.min[-1])
+
+    def pop(self):
+        x = self.item.pop()
+        print"Poped elements from main stack = {}".format(x)
+        
+        if x == self.min[-1]:
+            min = self.min.pop()
+            print"Poped smallest elements from main stack = {}".format(min)
+
+ob = Stack()
+for i in range(1,10):
+    ob.push(i)
+print ob.item
+print ob.min
+for i in range(5):
+    ob.pop()
+    
+print ob.item
+print ob.min
+
